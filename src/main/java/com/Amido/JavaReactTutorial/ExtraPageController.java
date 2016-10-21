@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HomeController {
-    @RequestMapping(value = "/")
+public class ExtraPageController {
+    @RequestMapping(value = "/extra-page")
     public String index() {
-        return "index";
+        return "extra-page";
     }
 }
