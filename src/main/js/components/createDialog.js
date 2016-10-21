@@ -26,11 +26,13 @@ class CreateDialog extends React.Component {
     }
 
     render() {
+        console.log(this.props);
         var inputs = this.props.attributes.map(attribute =>
             <p key={attribute}>
                 <input type="text" placeholder={attribute} ref={attribute} className="field" />
             </p>
         );
+
 
         return (
             <div>
@@ -52,3 +54,8 @@ class CreateDialog extends React.Component {
         )
     }
 }
+
+CreateDialog.propTypes = {
+    propertyLinkClickHandler: PropTypes.func.isRequired
+};
+export default CreateDialog;

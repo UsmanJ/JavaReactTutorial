@@ -1,14 +1,14 @@
 const React = require('react');
 const EmployeeList = require('./components/employeeList');
-const CreateDialog = require('./components/dialog');
+const CreateDialog = require('./components/createDialog');
 const client = require('./client');
 const follow = require('./follow');
 
-class App extends React.Component {
+class Home extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {employees: [], attributes:[], pageSize: 2, links: {}};
+        this.state = {employees: [], attributes:[], pageSize: 5, links: {}};
         this.onCreate = this.onCreate.bind(this);
         this.onNavigate = this.onNavigate.bind(this);
         this.onDelete = this.onDelete.bind(this);
@@ -77,14 +77,20 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <CreateDialog />
+                <CreateDialog
+                    attributes={this.state.attributes}
+                    onCreate={this.onCreate}
+                />
                 <EmployeeList
                     employees={this.state.employees}
                     links={this.state.links}
                     pageSize={this.state.pageSize}
-                    onNavigate={this.state.onNavigate}
+                    onNavigate={this.onNavigate}
+                    onDelete={this.onDelete}
                 />
             </div>
         )
     }
 }
+
+export default Home;

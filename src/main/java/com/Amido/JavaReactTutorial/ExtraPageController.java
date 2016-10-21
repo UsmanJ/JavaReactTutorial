@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ExtraPageController {
     @RequestMapping(value = "/extra-page")
     public String index() {
-        return "extra-page";
+        return "index";
     }
 }
