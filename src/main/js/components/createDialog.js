@@ -55,7 +55,4 @@ class CreateDialog extends React.Component {
     }
 }
 
-CreateDialog.propTypes = {
-    propertyLinkClickHandler: PropTypes.func.isRequired
-};
 export default CreateDialog;
