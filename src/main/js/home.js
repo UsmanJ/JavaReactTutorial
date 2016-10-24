@@ -12,6 +12,7 @@ class Home extends React.Component {
         this.onCreate = this.onCreate.bind(this);
         this.onNavigate = this.onNavigate.bind(this);
         this.onDelete = this.onDelete.bind(this);
+        this.updatePageSize = this.updatePageSize.bind(this);
     }
 
     componentDidMount() {
@@ -68,6 +69,12 @@ class Home extends React.Component {
         });
     }
 
+    updatePageSize(pageSize) {
+        if (pageSize !== this.state.pageSize) {
+            this.loadFromServer(pageSize);
+        }
+    }
+
     onDelete(employee) {
         client({method: 'DELETE', path: employee._links.self.href}).done(response => {
             this.loadFromServer(this.state.pageSize);
@@ -87,6 +94,7 @@ class Home extends React.Component {
                     pageSize={this.state.pageSize}
                     onNavigate={this.onNavigate}
                     onDelete={this.onDelete}
+                    updatePageSize={this.updatePageSize}
                 />
             </div>
         )
